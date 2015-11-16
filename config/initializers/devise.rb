@@ -237,14 +237,19 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, '506280599497157', 'e80d07c9dd0fe3d541daf809afb6679d', provider_ignores_state: true, scope: 'email', info_fields: 'email'
+  
+  config.omniauth :facebook, '506280599497157', 'e80d07c9dd0fe3d541daf809afb6679d', scope: 'email', info_fields: 'email,name,first_name,last_name', provider_ignores_state: true
+  
+  
+    #,email,user_birthday,user_location
+    #, info_fields: 'email, user_birthday, first_name, gender, hometown, religion, relationship_status, significant_other'
 
-#config.omniauth :facebook, '506280599497157', 'e80d07c9dd0fe3d541daf809afb6679d', {:provider_ignores_state => true}
+    #config.omniauth :facebook, '506280599497157', 'e80d07c9dd0fe3d541daf809afb6679d', {:provider_ignores_state => true}
 
-#config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {
- # strategy_class: OmniAuth::Strategies::Facebook,
-#  provider_ignores_state: true,
-#}
+    #config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {
+     # strategy_class: OmniAuth::Strategies::Facebook,
+    #  provider_ignores_state: true,
+    #}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

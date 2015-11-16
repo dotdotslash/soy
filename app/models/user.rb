@@ -11,22 +11,26 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
+     # user.name = auth.info.name   # assuming the user model has a name
+     # user.name = "Shit brick"
+      #user.date_of_birth = auth.user_birthday
+     
+     # user.name = auth.info.image
+      
+      user.name = auth.info.name
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.thumbnail = auth.info.image
+      
+      #user.location = auth.info.location
+      #user.gender = auth.info.gender
+      
+      #user.is_female = 1
+      
       #user.image = auth.info.image # assuming the user model has an image
     end
   end
-  
-#  def self.create_with_omniauth(auth)
-#    create! do |user|
- #     user.provider = auth['provider']
-  #    user.uid = auth['uid']
-   #   if auth['info']
-    #    user.name = auth['info']['name'] || ""
-     #   user.email = auth['info']['email'] || ""
-#      end
-#    end
-#  end
-  
+    
   
   def self.new_with_session(params, session)
     super.tap do |user|

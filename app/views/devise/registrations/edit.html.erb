@@ -10,13 +10,27 @@
   
   <div><%= f.label :name %><br />
           <%= f.text_field :name, autofocus: true %></div>
+		  
+  <div><%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true %></div>
+  <div><%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autofocus: true %></div>		
 
+<%= current_user.name %>
+
+<%= image_tag(current_user.thumbnail, :alt => "faceboook") %>		  
+		    		  
+  <div><%= f.label :thumbnail %><br />
+          <%= f.text_field :thumbnail, autofocus: true %></div>
+  <div><%= f.label :location %><br />
+          <%= f.text_field :location, autofocus: true %></div>
+  <div><%= f.label :gender %><br />
+          <%= f.text_field :gender, autofocus: true %></div>
+		  		  		  
 
  <div><%= f.radio_button :is_female, '1' %> <%= f.label :is_female, "Female" %></div>
  <div><%= f.radio_button :is_female, '0' %> <%= f.label :is_female, "Male" %></div>
 		  
-
-  
 
   <div><%= f.label :date_of_birth %><br />
       <%= f.date_select :date_of_birth, :order => [:day, :month, :year], :start_year => 1900 %>
