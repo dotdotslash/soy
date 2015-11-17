@@ -18,7 +18,28 @@
 
 <%= current_user.name %>
 
-<%= image_tag(current_user.thumbnail, :alt => "thumbnail") %>
+<div class="preferences">
+    <div>
+		<%= f.label :gen_pref %><br />
+        <%= f.text_field :gen_pref, autofocus: true %>
+	</div>
+	
+	<div id="age-slider"></div>
+    <div>
+		<%= f.label :age_min_pref %><br />
+		<%= f.select :age_min_pref, (19..99), autofocus: true %>
+	</div>
+    <div>
+		<%= f.label :age_max_pref %><br />		
+		<%= f.select :age_max_pref, (19..99), autofocus: true %>
+	</div>
+	
+	<div>
+		<%= f.label :local_pref %><br />
+		<%= f.range_field :local_pref, :min=>0, :max=>200, :class=>"slide", :id=>"slider1"%>
+	</div>	
+</div>
+
 
 <%= image_tag current_user.thumbnail_url(:thumb) if current_user.thumbnail? %>
 

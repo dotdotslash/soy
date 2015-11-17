@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bourbon'
 gem 'neat'
+gem 'normalize-rails'
 
 gem 'devise'
 gem 'omniauth'
@@ -36,9 +37,13 @@ gem 'omniauth-facebook'
 # Security?
 gem "figaro"
 
+# Upload stuff
 gem 'carrierwave'
 gem 'rmagick'
 gem 'carrierwave-video'
+gem 'fog'
+
+
 gem 'mailboxer'
 gem 'stripe'
 gem 'friendly_id', '~> 5.0.0'
