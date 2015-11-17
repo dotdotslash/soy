@@ -3,6 +3,8 @@
 <head>
   <title>Soy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="http://vjs.zencdn.net/5.0.2/video-js.css" rel="stylesheet">
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -32,9 +34,12 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<%= yield %>
+<div class="content">
+	<%= yield %>
+</div>
 
 
 
+<script src="http://vjs.zencdn.net/5.0.2/video.js"></script>
 </body>
 </html>

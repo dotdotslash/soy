@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   
   
+  get 'profile/index'
+  get 'profile/', to: 'profile#index'
+  
+  get 'profile/:uname', to: 'profile#show'
+  
+  
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

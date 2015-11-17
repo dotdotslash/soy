@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true}) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -18,10 +18,20 @@
 
 <%= current_user.name %>
 
-<%= image_tag(current_user.thumbnail, :alt => "faceboook") %>		  
-		    		  
-  <div><%= f.label :thumbnail %><br />
-          <%= f.text_field :thumbnail, autofocus: true %></div>
+<%= image_tag(current_user.thumbnail, :alt => "thumbnail") %>
+
+<%= image_tag current_user.thumbnail_url(:thumb) if current_user.thumbnail? %>
+
+	<div>
+		<%= f.file_field :thumbnail %>
+	</div>
+	<div>
+		<label>
+	    	<%= f.check_box :remove_thumbnail %>
+	    	Remove avatar
+	    </label>	    		 
+	</div>
+		  
   <div><%= f.label :location %><br />
           <%= f.text_field :location, autofocus: true %></div>
   <div><%= f.label :gender %><br />

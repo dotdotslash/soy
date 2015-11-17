@@ -6,8 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params.delete("current_password")
       resource.update_without_password(params)
     else
-      #resource.update_with_password(params)
-      resource.update_without_password(params)
+      resource.update_with_password(params)
     end
   end
   
