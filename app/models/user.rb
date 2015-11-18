@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   
   mount_uploader :thumbnail, ImageUploader 
-  
+  mount_uploader :video, VideoUploader
   
   #attr_accessible
   # Include default devise modules. Others available are:
@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
         
   
   def self.from_omniauth(auth)
-         
-    
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid

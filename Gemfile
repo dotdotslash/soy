@@ -41,7 +41,9 @@ gem "figaro"
 gem 'carrierwave'
 gem 'rmagick'
 gem 'carrierwave-video'
+gem 'carrierwave_direct'
 gem 'fog'
+gem 'transloadit-rails'
 
 
 gem 'mailboxer'
