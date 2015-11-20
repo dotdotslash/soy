@@ -1,0 +1,21 @@
+<p>
+  <strong>Content:</strong>
+  <%= @micropost.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @micropost.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_micropost_path(@micropost) %> |
+<%= link_to 'Back', microposts_path %>
+
+
+<h2><%= @micropost.comments.count %> Comments</h2>
+
+<%= render @micropost.comments%>
+
+<h3>Add Comment</h3>
+
+<%= render "comments/form" %>

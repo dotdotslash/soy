@@ -1,4 +1,12 @@
 <h1>Resized upload image</h1>
 
 <%= @upload %>
-<%= params[:transloadit]%>
+<%= params[:transloadit][:results] %>
+
+<hr>
+<%= params[:transloadit][:results][:thumbnail] %>
+
+
+<%= params[:transloadit][:results][:thumbnail].first[:url] %>
+
+<%= image_tag params[:transloadit][:results][:thumbnail].first[:url] %>

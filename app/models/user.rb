@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
   
-  mount_uploader :thumbnail, ImageUploader 
-  mount_uploader :video, VideoUploader
-  
   #attr_accessible
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,6 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]  
   
+  
+ has_many :microposts
+ has_many :comments
+
+ mount_uploader :thumbnail, ImageUploader 
+ mount_uploader :video, VideoUploader
         
   
   def self.from_omniauth(auth)
@@ -22,11 +25,8 @@ class User < ActiveRecord::Base
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.thumbnail = auth.info.image
-      
       #user.location = auth.info.location
       #user.gender = auth.info.gender
-      
-      
     end
   end
     
@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+  
+  def to_param
+    "#{id} #{name}".parameterize
   end
          
 end
